@@ -1,0 +1,44 @@
+<resources>
+    <string name="app_name">LearnC</string>
+    <string-array name="control_names">
+        <item> If </item>
+        <item> Else If </item>
+        <item> While </item>
+        <item> Do While </item>
+        <item> For </item>
+        <item> Switch </item>
+        <item> Break </item>
+        <item> Continue </item>
+        <item> Goto </item>
+    </string-array>
+
+
+    <string-array name="String_names">
+        <item> String </item>
+        <item> String cmp </item>
+        <item> String concate </item>
+        <item> String copy </item>
+        <item> String Func </item>
+        <item> String gets puts </item>
+        <item> String length </item>
+        <item> String reverse </item>
+        <item> String wr </item>
+        <item> String str </item>
+    </string-array>
+    <string-array name="Pre_names">
+        <item> Directives </item>
+        <item> Macros </item>
+        <item> #include </item>
+        <item> #define </item>
+        <item> #undef </item>
+        <item>  #ifdef </item>
+        <item> #ifndef </item>
+        <item> #if </item>
+        <item> #else </item>
+        <item> #error </item>
+        <item> #pragma </item>
+    </string-array>
+    <string name="title_activity_condition_theory">Condition_theory</string>
+
+
+</resources>
