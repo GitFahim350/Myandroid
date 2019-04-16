@@ -1,9 +1,12 @@
 package com.example.invisible.learnc;
 
 import android.annotation.SuppressLint;
+import android.content.Intent;
+import android.content.res.ColorStateList;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.graphics.Color;
+import android.os.CountDownTimer;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -15,10 +18,15 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import java.util.ArrayList;
+import java.util.Locale;
 import java.util.Random;
 
 public class Main2Activity extends AppCompatActivity implements View.OnClickListener {
-    private TextView tv,sc,ques;
+    public static final long countdowninmils=30000;
+    private ColorStateList colorst;
+    private CountDownTimer ct;
+    private  long timeleft;
+    private TextView tv,sc,ques,time,ans;
     private Button confirmbutton;
     private Button STARTBUTTON;
     private Button NextButton;
@@ -29,23 +37,27 @@ public class Main2Activity extends AppCompatActivity implements View.OnClickList
     private RadioButton Rb2;
     private RadioButton Rb3;
     Studentdetails std;
+    String newid;
     Random rand;
     Cursor cr;
     int y=0,z=0,score=0,a=1,number=1,count=0,stop=0;
     int check[]=new int[100];
-    ///check[0]=0;
-
     database d;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         d=new database(this);
         SQLiteDatabase sqlite =d.getWritableDatabase();
+        Intent intent=getIntent();
+        newid=intent.getStringExtra("Userid");
+        std=new Studentdetails(this);
         rand=new Random();
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main2);
         confirmbutton=findViewById(R.id.ConfirmButton);
         STARTBUTTON=findViewById(R.id.start);
         confirmbutton=findViewById(R.id.ConfirmButton);
+        ans=findViewById(R.id.answer);
+        time=findViewById(R.id.Time);
         ques=findViewById(R.id.textView3);
         NextButton=findViewById(R.id.Nextid);
         STARTBUTTON.setOnClickListener(this);
@@ -57,13 +69,16 @@ public class Main2Activity extends AppCompatActivity implements View.OnClickList
         Rb3=findViewById(R.id.Option_3);
         tv=findViewById(R.id.textView4);
         grp=findViewById(R.id.group);
-        //Cursor sr= (Cursor) getIntent().getSerializableExtra("Cursor");
+        colorst=time.getTextColors();
+        timeleft=countdowninmils;
     }
     @SuppressLint("ResourceAsColor")
     @Override
     public void onClick(View v) {
         if(v.getId()==R.id.start)
         {
+            setquestion();
+            //startcountdown();
             cr=d.getCr();
             if(cr.getCount()==0)
             {
@@ -94,7 +109,6 @@ public class Main2Activity extends AppCompatActivity implements View.OnClickList
                 Rb2.setText(q[z].Option2);
                 Rb3.setText(q[z].Option3);
                 STARTBUTTON.setVisibility(View.INVISIBLE);
-
                 check[0]=100;
                 for(int i=1;i<y;i++)
                 {
@@ -110,33 +124,33 @@ public class Main2Activity extends AppCompatActivity implements View.OnClickList
             confirmbutton.setVisibility(View.INVISIBLE);
             if(q[z].corans==1)
             {
-                tv.setText("The Correct answer is"+q[z].Option1);
+                //tv.setText("The Correct answer is"+q[z].Option1);
+                ans.setText("The Correct answer is"+q[z].Option1);
             }
             else if(q[z].corans==2)
             {
-                tv.setText("The Correct answer is"+q[z].Option2);
+               // tv.setText("The Correct answer is"+q[z].Option2);
+                ans.setText("The Correct answer is"+q[z].Option2);
             }
             else if(q[z].corans==3)
             {
-                tv.setText("The Correct answer is"+q[z].Option3);
+                //tv.setText("The Correct answer is"+q[z].Option3);
+                ans.setText("The Correct answer is"+q[z].Option3);
             }
-
             if(q[z].corans==1)
             {
                 Rb1.setTextColor(Color.GREEN);
-                Rb2.setTextColor(Color.RED);
-                Rb3.setTextColor(Color.RED);
+
             }
             else if(q[z].corans==2)
             {
-                Rb1.setTextColor(Color.RED);
+
                 Rb2.setTextColor(Color.GREEN);
-                Rb3.setTextColor(Color.RED);
+
             }
             else if(q[z].corans==3)
             {
-                Rb1.setTextColor(Color.RED);
-                Rb2.setTextColor(Color.RED);
+
                 Rb3.setTextColor(Color.GREEN);
             }
             if(q[z].corans==1&&RB==Rb1)
@@ -154,29 +168,44 @@ public class Main2Activity extends AppCompatActivity implements View.OnClickList
                 score++;
                 sc.setText("Score: "+score);
             }
-
-            if(z==y-1)
+            if(count>y-1)
             {
                 Toast.makeText(this,"Last score is "+score,Toast.LENGTH_SHORT).show();
+                Cursor stc=std.getCusor();
+                while(stc.moveToNext())
+                {
+                    if(stc.getString(0).equals(newid))
+                    {
+                        if(score>Integer.parseInt(stc.getString(3)))
+                        {
+
+                            std.Updateinfo(Integer.parseInt(stc.getString(0)),stc.getString(1),stc.getString(2),score);
+                            Alert("Final score"," "+score+" is your new high score");
+                            Intent in=new Intent(Main2Activity.this,MainActivity.class);
+                            startActivity(in);
+                        }
+                        else
+                        {
+                            Alert("Final score"," "+score+" is your  score");
+                        }
+                        break;
+                    }
+                }
             }
 
         }
         if(v.getId()==R.id.Nextid)
         {
+            ans.setText("");
             number++;
             z=rand.nextInt(y);
-
             while(check[z]!=z)
             {
                 z=rand.nextInt(y);
-
             }
-
-
-
                 count++;
                 ques.setText("Question:"+number+"/"+y);
-                check[z]=100;
+                check[z]=500;
                 grp.clearCheck();
                 if(count==y-1)
                 {
@@ -188,11 +217,9 @@ public class Main2Activity extends AppCompatActivity implements View.OnClickList
                     Rb2.setTextColor(Color.BLACK);
                     Rb3.setTextColor(Color.BLACK);
                     confirmbutton.setVisibility(View.VISIBLE);
-                    //Toast.makeText(Main2Activity.this," Value of z is "+z,Toast.LENGTH_SHORT).show();
                     NextButton.setVisibility(View.INVISIBLE);
+                    count++;
                 }
-
-
                 else if(z<y)
                 {
                     confirmbutton.setVisibility(View.VISIBLE);
@@ -203,10 +230,38 @@ public class Main2Activity extends AppCompatActivity implements View.OnClickList
                     Rb1.setTextColor(Color.BLACK);
                     Rb2.setTextColor(Color.BLACK);
                     Rb3.setTextColor(Color.BLACK);
-                    // Toast.makeText(Main2Activity.this," Value of z is "+z,Toast.LENGTH_SHORT).show();
                 }
-
-
+        }
+    }
+    public void startcountdown()
+    {
+        ct=new CountDownTimer(timeleft,1000) {
+            @Override
+            public void onTick(long millisUntilFinished) {
+                timeleft=millisUntilFinished;
+                updatecountdowntext();
+            }
+            @Override
+            public void onFinish() {
+                timeleft=0;
+                updatecountdowntext();
+                confirmbutton.setVisibility(View.INVISIBLE);
+            }
+        }.start();
+    }
+    public void updatecountdowntext()
+    {
+        int minitues= (int) ((timeleft/1000)/60);
+        int second= (int) ((timeleft/1000)%60);
+        String timeformated=String.format(Locale.getDefault(),"%0.2d:%0.2d",minitues,second);
+        time.setText(timeformated);
+        if(timeleft<10000)
+        {
+            time.setTextColor(Color.RED);
+        }
+        else
+        {
+            time.setTextColor(Color.CYAN);
         }
     }
     public String getinfo(String s)
@@ -234,5 +289,26 @@ public class Main2Activity extends AppCompatActivity implements View.OnClickList
         builder.setMessage(msg);
         builder.setCancelable(true);
         builder.show();
+    }
+    public void setquestion()
+    {
+        d.Createquestion("Which of the following statements should be used to obtain a remainder after dividing 3.14 by 2.1 ?","rem = 3.14 % 2.1;","rem = modf(3.14, 2.1);","rem = fmod(3.14, 2.1);",3);
+        d.Createquestion("What are the types of linkages?","Internal and External","External, Internal and None","External and None",2);
+        d.Createquestion("Which of the following special symbol allowed in a variable name?","r* (asterisk)","| (pipeline)","_ (underscore)",3);
+        d.Createquestion("How would you round off a value from 1.66 to 2.0?","ceil(1.66)","floor(1.66)","roundup(1.66)",1);
+        d.Createquestion("The keyword used to transfer control from a function back to the calling function is ?","switch","goto","return",3);
+        d.Createquestion("Which of the following function sets first n characters of a string to a given character?","strinit()","strnset()","echo \"\\\\n\";",2);
+        d.Createquestion("If the two strings are identical, then strcmp() function returns","printf('\\n');","printf(\"\\\\n\")","_ (underscore)",1);
+        d.Createquestion("The library function used to find the last occurrence of a character in a string is","strnstr()","laststr()","strrchr()",3);
+        d.Createquestion("What is (void*)0?","Representation of NULL pointer","Representation of void pointer","Error",1);
+        d.Createquestion("How many bytes are occupied by near, far and huge pointers (DOS)?","near=2 far=4 huge=4","near=4 far=8 huge=8","near=2 far=4 huge=8",1);
+    }
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        if(ct!=null)
+        {
+            ct.cancel();
+        }
     }
 }

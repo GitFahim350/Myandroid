@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="@color/Cyan"
+    android:background="@color/RoyalBlue"
     tools:context=".pointer">
 
 
@@ -17,8 +17,8 @@
         android:textAllCaps="false"
         android:layout_height="50dp"
         android:text="Basic pointer"
-        android:background="@color/Black"
-        android:textColor="@color/Cyan"
+        android:background="@drawable/buttonstyle"
+        android:textColor="@color/Black"
         />
     <Button
         android:id="@+id/pointto_id"
@@ -28,8 +28,8 @@
         android:textAllCaps="false"
         android:layout_height="60dp"
         android:text="Pointer to pointer"
-        android:background="@color/Black"
-        android:textColor="@color/Cyan"
+        android:background="@drawable/buttonstyle"
+        android:textColor="@color/Black"
         />
     <Button
         android:id="@+id/arithmatic_id"
@@ -39,8 +39,8 @@
         android:textAllCaps="false"
         android:layout_height="50dp"
         android:text="Arithmetic pointer"
-        android:background="@color/Black"
-        android:textColor="@color/Cyan"
+        android:background="@drawable/buttonstyle"
+        android:textColor="@color/Black"
         />
 
 </LinearLayout>

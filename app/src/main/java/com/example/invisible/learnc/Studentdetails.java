@@ -72,10 +72,10 @@ public class Studentdetails extends SQLiteOpenHelper {
         cv.put(Username,s1);
         cv.put(Passwordname,s2);
         cv.put(Highscore,High);
-        sq.update(TABLENAME,cv,"Highscore",new String[]{Highscore});
+        String hi=Integer.toString(High);
+        sq.update(TABLENAME,cv,"ID=?",new String []{String.valueOf(id)});
         Toast.makeText(C,"Informations  are updated",Toast.LENGTH_SHORT).show();
     }
-
     public Cursor getCusor()
     {
         SQLiteDatabase  sq=this.getWritableDatabase();

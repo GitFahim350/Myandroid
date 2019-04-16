@@ -4,81 +4,239 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/mainback"
+    android:background="@color/Orange"
     android:orientation="vertical"
     tools:context=".MainActivity">
 
 
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentTop="true"
-        android:layout_marginStart="111dp"
-        android:layout_marginLeft="111dp"
-        android:layout_marginTop="20dp"
-        android:text=""
-        android:textSize="24sp"
-        android:textStyle="bold" />
+    <LinearLayout
+        android:clipToPadding="false"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <android.support.v7.widget.CardView
 
-    <Button
-        android:id="@+id/Startquiz"
-        android:layout_width="150dp"
-        android:layout_height="wrap_content"
-        android:layout_marginRight="100dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginLeft="130dp"
-        android:background="@color/Black"
-        android:text="Start Quiz"
-        android:textColor="@color/Cyan" />
+            android:foreground="?android:attr/selectableItemBackground"
+            android:clickable="true"
+            android:id="@+id/Quiz"
+            android:layout_width="160dp"
+            android:layout_height="190dp"
+            android:layout_margin="10dp">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:gravity="center">
+                <ImageView
+                    android:layout_width="64dp"
+                    android:layout_height="64dp"
+                    android:background="@drawable/yellowgreen"
+                    android:src="@drawable/quizz"
+                    android:padding="10dp"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textStyle="bold"
+                    android:layout_marginTop="10dp"
+                    android:text="Quiz"/>
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/Blue"
+                    android:layout_margin="10dp"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="Give a quiz"
+                    android:padding="5dp"
+                    android:textColor="@android:color/darker_gray"/>
 
-    <Button
-        android:id="@+id/setbutton"
-        android:layout_width="150dp"
-        android:layout_height="wrap_content"
-        android:layout_marginRight="100dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginLeft="130dp"
-        android:background="@color/Black"
-        android:text="Setquestions"
-        android:textColor="@color/Cyan" />
+            </LinearLayout>
+        </android.support.v7.widget.CardView>
+        <android.support.v7.widget.CardView
+            android:foreground="?android:attr/selectableItemBackground"
+            android:id="@+id/Oflinetutorials"
+            android:clickable="true"
+            android:layout_width="160dp"
+            android:layout_height="190dp"
+            android:layout_margin="10dp">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:gravity="center">
+                <ImageView
+                    android:layout_width="64dp"
+                    android:layout_height="64dp"
+                    android:background="@drawable/cyan"
+                    android:src="@drawable/oflinetutorials"
+                    android:padding="10dp"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textStyle="bold"
+                    android:layout_marginTop="10dp"
+                    android:text="Tutorials"/>
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/Blue"
+                    android:layout_margin="10dp"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="Ofline tutorials"
+                    android:padding="5dp"
+                    android:textColor="@android:color/darker_gray"/>
 
-    <Button
-        android:id="@+id/Show"
-        android:layout_width="150dp"
-        android:layout_height="wrap_content"
-        android:layout_marginRight="100dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginLeft="130dp"
-        android:background="@color/Black"
-        android:text="Show"
-        android:textColor="@color/Cyan" />
+            </LinearLayout>
+        </android.support.v7.widget.CardView>
 
-    <Button
-        android:id="@+id/tutorial"
-        android:layout_width="150dp"
-        android:layout_height="wrap_content"
-        android:layout_marginRight="100dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginLeft="130dp"
-        android:background="@color/Black"
-        android:text="Tutorials"
-        android:textColor="@color/Cyan"
-         />
+    </LinearLayout>
+    <LinearLayout
+        android:clipToPadding="false"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <android.support.v7.widget.CardView
+            android:foreground="?android:attr/selectableItemBackground"
+            android:id="@+id/Onlinetutorials"
+            android:clickable="true"
+            android:layout_width="160dp"
+            android:layout_height="190dp"
+            android:layout_margin="10dp">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:gravity="center">
+                <ImageView
+                    android:layout_width="64dp"
+                    android:layout_height="64dp"
+                    android:background="@drawable/lightgreen"
+                    android:src="@drawable/onlinetutorials"
+                    android:padding="10dp"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textStyle="bold"
+                    android:layout_marginTop="10dp"
+                    android:text="Tutorials"/>
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/Blue"
+                    android:layout_margin="10dp"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="Online tutorials"
+                    android:padding="5dp"
+                    android:textColor="@android:color/darker_gray"/>
 
-    <Button
-        android:id="@+id/video"
-        android:layout_width="150dp"
-        android:layout_height="wrap_content"
-        android:layout_marginRight="100dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginLeft="130dp"
-        android:background="@color/Black"
-        android:text="Code Here"
-        android:textColor="@color/Cyan"
-        />
+            </LinearLayout>
+        </android.support.v7.widget.CardView>
+        <android.support.v7.widget.CardView
+            android:foreground="?android:attr/selectableItemBackground"
+            android:id="@+id/code"
+            android:clickable="true"
+            android:layout_width="160dp"
+            android:layout_height="190dp"
+            android:layout_margin="10dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:layout_width="64dp"
+                    android:layout_height="64dp"
+                    android:background="@drawable/cpro"
+                    android:padding="10dp"
+                    android:src="@drawable/codelogo" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:text="Codding"
+                    android:textStyle="bold" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_margin="10dp"
+                    android:background="@color/Blue" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:padding="5dp"
+                    android:text="Code here"
+                    android:textColor="@android:color/darker_gray" />
+
+            </LinearLayout>
+        </android.support.v7.widget.CardView>
+
+    </LinearLayout>
+    <LinearLayout
+        android:clipToPadding="false"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <android.support.v7.widget.CardView
+            android:foreground="?android:attr/selectableItemBackground"
+            android:id="@+id/viva"
+            android:clickable="true"
+            android:layout_width="340dp"
+            android:layout_height="150dp"
+            android:layout_margin="10dp">
+            <LinearLayout
+
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:gravity="center">
+                <ImageView
+                    android:layout_width="64dp"
+                    android:layout_height="64dp"
+                    android:background="@drawable/purplebackground"
+                    android:src="@drawable/viva"
+
+                    android:padding="10dp"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textStyle="bold"
+                    android:layout_marginTop="10dp"
+                    android:text="Viva"/>
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/Blue"
+                    android:layout_margin="10dp"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="Some viva questions "
+                    android:padding="5dp"
+                    android:textColor="@android:color/darker_gray"/>
+
+            </LinearLayout>
+        </android.support.v7.widget.CardView>
+
+
+    </LinearLayout>
 
 
 </LinearLayout>

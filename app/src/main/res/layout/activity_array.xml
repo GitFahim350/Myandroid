@@ -4,11 +4,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/Cyan"
+    android:background="@color/RoyalBlue"
     android:orientation="vertical"
     tools:context=".Array">
-
-
     <Button
         android:id="@+id/one_id"
         android:layout_marginTop="150dp"
@@ -17,8 +15,8 @@
         android:textAllCaps="false"
         android:layout_height="50dp"
         android:text="1D Array"
-        android:background="@color/Black"
-        android:textColor="@color/Cyan"
+        android:background="@drawable/buttonstyle"
+        android:textColor="@color/Black"
         />
     <Button
         android:id="@+id/two_id"
@@ -28,8 +26,8 @@
         android:textAllCaps="false"
         android:layout_height="60dp"
         android:text="2D Array"
-        android:background="@color/Black"
-        android:textColor="@color/Cyan"
+        android:background="@drawable/buttonstyle"
+        android:textColor="@color/Black"
         />
     <Button
         android:id="@+id/three_id"
@@ -39,12 +37,7 @@
         android:textAllCaps="false"
         android:layout_height="50dp"
         android:text="Array to Func"
-        android:background="@color/Black"
-        android:textColor="@color/Cyan"
+        android:background="@drawable/buttonstyle"
+        android:textColor="@color/Black"
         />
-
-
-
-
-
 </LinearLayout>

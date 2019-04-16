@@ -9,7 +9,7 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 public class database extends SQLiteOpenHelper {
-    private  static final String DATABASENAME="QUESTIONANDANSWERDATABASE.db";
+    private  static final String DATABASENAME="Queswithans.db";
     private  static final String TABLENAME="MYDATABASE";
     private  static final String QUESTION="QUESTION";
     private  static final String OPTION1="OPTION1";

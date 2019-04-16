@@ -7,7 +7,10 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.CalendarView;
 import android.widget.EditText;
+import android.widget.RelativeLayout;
+import android.widget.Toast;
 
 public class Newaccountactivity extends AppCompatActivity {
 
@@ -21,7 +24,6 @@ public class Newaccountactivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_newaccountactivity);
-
         d=new Studentdetails(this);
         idtext=findViewById(R.id.Idtext);
         usertext=findViewById(R.id.Usernametext);
@@ -40,6 +42,9 @@ public class Newaccountactivity extends AppCompatActivity {
                if(cur.getCount()==0)
                {
                    d.Insertinfo(info.id,info.username,info.password,info.highscore);
+                   Intent in=new Intent(Newaccountactivity.this,Loginactivity.class);
+                   startActivity(in);
+                   finish();
                }
                else
                {
@@ -48,13 +53,24 @@ public class Newaccountactivity extends AppCompatActivity {
                        if(un.equals(cur.getString(1))||info.id== Integer.parseInt(cur.getString(0)))
                        {
                            Alert("Error","This username or Id is already taken Enter a unique username and Id");
+                           idtext.setText(null);
+                           usertext.setText(null);
+                           passwordtext.setText(null);
                            error=1;
                            break;
+                       }
+                       if(info.password.length()<8)
+                       {
+                           Toast.makeText(Newaccountactivity.this,"Password should be at least 8 charecters",Toast.LENGTH_SHORT).show();
+                           passwordtext.setText(null);
+                           error=1;
                        }
                    }
                    if(error==0)
                    {
                        d.Insertinfo(info.id,info.username,info.password,info.highscore);
+                       Intent in=new Intent(Newaccountactivity.this,Loginactivity.class);
+                       startActivity(in);
                    }
                    error=0;
                }

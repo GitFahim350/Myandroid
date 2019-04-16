@@ -44,7 +44,6 @@ public class Main3Activity extends AppCompatActivity implements View.OnClickList
         if(v.getId()==R.id.Save)
         {
             d.Createquestion(s1,s2,s3,s4,s5);
-
         }
         if(v.getId()==R.id.ShowAlert) {
 

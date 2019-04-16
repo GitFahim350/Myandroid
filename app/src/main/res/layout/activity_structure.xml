@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="@color/Cyan"
+    android:background="@color/RoyalBlue"
     tools:context=".Structure">
 
 
@@ -17,8 +17,8 @@
         android:textAllCaps="false"
         android:layout_height="50dp"
         android:text="Structure"
-        android:background="@color/Black"
-        android:textColor="@color/Cyan"
+        android:background="@drawable/buttonstyle"
+        android:textColor="@color/Black"
         />
     <Button
         android:id="@+id/array_structure_id"
@@ -28,8 +28,8 @@
         android:textAllCaps="false"
         android:layout_height="60dp"
         android:text="Array of Structure"
-        android:background="@color/Black"
-        android:textColor="@color/Cyan"
+        android:background="@drawable/buttonstyle"
+        android:textColor="@color/Black"
         />
     <Button
         android:id="@+id/nested_structure_id"
@@ -39,8 +39,8 @@
         android:textAllCaps="false"
         android:layout_height="50dp"
         android:text="Nested structure"
-        android:background="@color/Black"
-        android:textColor="@color/Cyan"
+        android:background="@drawable/buttonstyle"
+        android:textColor="@color/Black"
         />
 
     <Button
@@ -51,8 +51,8 @@
         android:textAllCaps="false"
         android:layout_height="50dp"
         android:text="Union"
-        android:background="@color/Black"
-        android:textColor="@color/Cyan"
+        android:background="@drawable/buttonstyle"
+        android:textColor="@color/Black"
         />
 
 

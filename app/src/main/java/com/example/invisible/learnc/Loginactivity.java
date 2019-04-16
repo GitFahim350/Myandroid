@@ -6,9 +6,12 @@ import android.database.sqlite.SQLiteDatabase;
 import android.os.Parcelable;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.CardView;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.RelativeLayout;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import java.io.Serializable;
@@ -17,8 +20,8 @@ public class Loginactivity extends AppCompatActivity implements View.OnClickList
 
     private EditText usertext;
     private EditText passwordtext;
-    private Button login;
-    private Button newacc;
+    private RelativeLayout login;
+    private TextView newacc;
     Studentdetails std;
     private int error=1;
     @Override
@@ -29,7 +32,7 @@ public class Loginactivity extends AppCompatActivity implements View.OnClickList
         SQLiteDatabase sqd =std.getWritableDatabase();
         usertext=findViewById(R.id.Username);
         passwordtext=findViewById(R.id.Password);
-        login=findViewById(R.id.Login);
+        login= findViewById(R.id.Login);
         newacc=findViewById(R.id.Newaccount);
         login.setOnClickListener(this);
         newacc.setOnClickListener(this);
@@ -51,8 +54,12 @@ public class Loginactivity extends AppCompatActivity implements View.OnClickList
                 {
                     if(ut.equals(detect.getString(1))&&pt.equals(detect.getString(2)))
                     {
+                        String user=detect.getString(0);
+
                         Intent in=new Intent(Loginactivity.this,Main2Activity.class);
+                        in.putExtra("Userid",user);
                         startActivity(in);
+                        finish();
                         error=0;
                         break;
                     }

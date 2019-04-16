@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="@color/Cyan"
+    android:background="@color/RoyalBlue"
     tools:context=".Function">
 
 
@@ -17,8 +17,8 @@
         android:textAllCaps="false"
         android:layout_height="50dp"
         android:text="Function"
-        android:background="@color/Black"
-        android:textColor="@color/Cyan"
+        android:background="@drawable/buttonstyle"
+        android:textColor="@color/Black"
         />
     <Button
         android:id="@+id/Value_and_reference"
@@ -28,8 +28,8 @@
         android:textAllCaps="false"
         android:layout_height="60dp"
         android:text="Value and reference"
-        android:background="@color/Black"
-        android:textColor="@color/Cyan"
+        android:background="@drawable/buttonstyle"
+        android:textColor="@color/Black"
         />
     <Button
         android:id="@+id/Recursion"
@@ -39,8 +39,8 @@
         android:textAllCaps="false"
         android:layout_height="50dp"
         android:text="Recursion"
-        android:background="@color/Black"
-        android:textColor="@color/Cyan"
+        android:background="@drawable/buttonstyle"
+        android:textColor="@color/Black"
         />
     <Button
         android:id="@+id/Storage_class"
@@ -50,8 +50,8 @@
         android:textAllCaps="false"
         android:layout_height="50dp"
         android:text="Storage class"
-        android:background="@color/Black"
-        android:textColor="@color/Cyan"
+        android:background="@drawable/buttonstyle"
+        android:textColor="@color/Black"
         />
 
 

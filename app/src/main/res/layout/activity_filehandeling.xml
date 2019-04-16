@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="@color/Cyan"
+    android:background="@color/RoyalBlue"
     tools:context=".Filehandeling">
 
 
@@ -17,8 +17,8 @@
         android:textAllCaps="false"
         android:layout_height="50dp"
         android:text="Filehandeling"
-        android:background="@color/Black"
-        android:textColor="@color/Cyan"
+        android:background="@drawable/buttonstyle"
+        android:textColor="@color/Black"
         />
 
     <Button
@@ -27,10 +27,10 @@
         android:layout_height="60dp"
         android:layout_marginLeft="120dp"
         android:layout_marginTop="20dp"
-        android:background="@color/Black"
+        android:background="@drawable/buttonstyle"
         android:text="Fprintf and Fscanf"
         android:textAllCaps="false"
-        android:textColor="@color/Cyan" />
+        android:textColor="@color/Black" />
     <Button
         android:id="@+id/fputc_id"
         android:layout_marginTop="20dp"
@@ -39,8 +39,8 @@
         android:textAllCaps="false"
         android:layout_height="50dp"
         android:text="Fputc Fgetc"
-        android:background="@color/Black"
-        android:textColor="@color/Cyan"
+        android:background="@drawable/buttonstyle"
+        android:textColor="@color/Black"
         />
 
     <Button
@@ -51,8 +51,8 @@
         android:textAllCaps="false"
         android:layout_height="50dp"
         android:text="Fputc Fgetc"
-        android:background="@color/Black"
-        android:textColor="@color/Cyan"
+        android:background="@drawable/buttonstyle"
+        android:textColor="@color/Black"
         />
     <Button
         android:id="@+id/fseek_id"
@@ -62,8 +62,8 @@
         android:textAllCaps="false"
         android:layout_height="60dp"
         android:text="Fseek"
-        android:background="@color/Black"
-        android:textColor="@color/Cyan"
+        android:background="@drawable/buttonstyle"
+        android:textColor="@color/Black"
         />
     <Button
         android:id="@+id/ftell_id"
@@ -73,8 +73,8 @@
         android:textAllCaps="false"
         android:layout_height="50dp"
         android:text="Ftell"
-        android:background="@color/Black"
-        android:textColor="@color/Cyan"
+        android:background="@drawable/buttonstyle"
+        android:textColor="@color/Black"
         />
 
     <Button
@@ -85,8 +85,8 @@
         android:textAllCaps="false"
         android:layout_height="50dp"
         android:text="Frewind"
-        android:background="@color/Black"
-        android:textColor="@color/Cyan"
+        android:background="@drawable/buttonstyle"
+        android:textColor="@color/Black"
         />
 
 
