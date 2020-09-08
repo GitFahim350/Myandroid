@@ -11,9 +11,13 @@
         android:roundIcon="@drawable/mainicon"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity android:name=".CreateOnline"></activity>
+        <activity android:name=".videofullscreen" />
+        <activity android:name=".Youtubeactivity" />
         <activity android:name=".splash">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
@@ -44,7 +48,7 @@
         <activity android:name=".Webactivity" />
         <activity android:name=".codeactivity" />
         <activity android:name=".vivaactivity" />
-        <activity android:name=".MainActivity"></activity>
+        <activity android:name=".MainActivity" />
     </application>
 
 </manifest>

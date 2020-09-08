@@ -77,7 +77,7 @@ public class Main2Activity extends AppCompatActivity implements View.OnClickList
     public void onClick(View v) {
         if(v.getId()==R.id.start)
         {
-            setquestion();
+            //setquestion();
             //startcountdown();
             cr=d.getCr();
             if(cr.getCount()==0)
@@ -176,10 +176,10 @@ public class Main2Activity extends AppCompatActivity implements View.OnClickList
                 {
                     if(stc.getString(0).equals(newid))
                     {
-                        if(score>Integer.parseInt(stc.getString(3)))
+                        if(score>Integer.parseInt(stc.getString(4)))
                         {
 
-                            std.Updateinfo(Integer.parseInt(stc.getString(0)),stc.getString(1),stc.getString(2),score);
+                            std.Updateinfo(Integer.parseInt(stc.getString(0)),stc.getString(1),stc.getString(2),stc.getString(3),score);
                             Alert("Final score"," "+score+" is your new high score");
                             Intent in=new Intent(Main2Activity.this,MainActivity.class);
                             startActivity(in);
@@ -302,6 +302,16 @@ public class Main2Activity extends AppCompatActivity implements View.OnClickList
         d.Createquestion("The library function used to find the last occurrence of a character in a string is","strnstr()","laststr()","strrchr()",3);
         d.Createquestion("What is (void*)0?","Representation of NULL pointer","Representation of void pointer","Error",1);
         d.Createquestion("How many bytes are occupied by near, far and huge pointers (DOS)?","near=2 far=4 huge=4","near=4 far=8 huge=8","near=2 far=4 huge=8",1);
+        d.Createquestion("A local variable is stored in ___","Code segment","Stack segment","Heap segment",2);
+        d.Createquestion("Which of the following operator can be used to access value at address stored in a pointer variable?","*","#","&&",1);
+        d.Createquestion("To print a float value which format specifier can be used?","%f","%lf","%Lf",1);
+        d.Createquestion("Which of the above three functions are likely to cause problems with pointers?"," Only P3","Only P1 and P3","Only P1 and P2",3);
+        d.Createquestion("What is (void*)0?"," Representation of NULL pointer","Representation of void pointer","Error",1);
+        d.Createquestion("In which header file is the NULL macro defined?"," stdio.h","stddef.h","stdio.h and stddef.h",3);
+        d.Createquestion("For 'C' programming language"," String constants can be concatenated at compile time","Size of array should be known at compile time","All of these",3);
+        d.Createquestion(" What is the maximun number of dimensions an array in C may have?"," Eight","Twenty","Theoratically no limit. The only practical limits are memory size and compilers",3);
+        d.Createquestion("If x is an array of interger, then the value of &x[i] is same as"," &x[i-1] + sizeof (int)","x + sizeof (int) * i","x+i",1);
+        d.Createquestion(" Size of the array need not be specified, when"," Initialization","declaratrion","It is a formal parameter",1);
     }
     @Override
     protected void onDestroy() {

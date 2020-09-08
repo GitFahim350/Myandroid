@@ -41,7 +41,7 @@ public class Loginactivity extends AppCompatActivity implements View.OnClickList
     public void onClick(View v) {
         if(v.getId()==R.id.Login)
         {
-            String ut=usertext.getText().toString();
+            String em=usertext.getText().toString();
             String pt=passwordtext.getText().toString();
             Cursor detect=std.getCusor();
             if(detect.getCount()==0)
@@ -52,7 +52,7 @@ public class Loginactivity extends AppCompatActivity implements View.OnClickList
             {
                 while (detect.moveToNext())
                 {
-                    if(ut.equals(detect.getString(1))&&pt.equals(detect.getString(2)))
+                    if(em.equals(detect.getString(1))&&pt.equals(detect.getString(3)))
                     {
                         String user=detect.getString(0);
 

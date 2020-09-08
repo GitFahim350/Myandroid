@@ -19,7 +19,7 @@ public class database extends SQLiteOpenHelper {
     private  static final String DROP="DROP TABLE IF EXISTS "+TABLENAME;
     private  static final String TABLE="CREATE TABLE "+TABLENAME+"("+QUESTION+" TEXT,"+OPTION1+" TEXT,"+OPTION2+" TEXT,"+OPTION3+" TEXT,"+CORANS+" INTEGER)";
     public String SELECTALL="select * from  "+TABLENAME;
-    private  static final int  version=9;
+    private  static final int  version=10;
     private static Context context;
     public database(Context context) {
         super(context, DATABASENAME, null, version);

@@ -14,7 +14,7 @@ import android.widget.Toast;
 
 public class Newaccountactivity extends AppCompatActivity {
 
-    private EditText idtext;
+    private EditText Etext;
     private EditText usertext;
     private EditText passwordtext;
     private Button save;
@@ -25,7 +25,7 @@ public class Newaccountactivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_newaccountactivity);
         d=new Studentdetails(this);
-        idtext=findViewById(R.id.Idtext);
+        Etext=findViewById(R.id.Emailtext);
         usertext=findViewById(R.id.Usernametext);
         passwordtext=findViewById(R.id.PasswordText);
         save=findViewById(R.id.Savedetails);
@@ -33,15 +33,16 @@ public class Newaccountactivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                User info=new User();
-               info.id= Integer.parseInt(idtext.getText().toString());
+               info.email= Etext.getText().toString();
                info.username=usertext.getText().toString();
+               String email=info.email;
                String un=info.username;
                info.password=passwordtext.getText().toString();
                info.highscore=0;
                Cursor cur=d.getCusor();
                if(cur.getCount()==0)
                {
-                   d.Insertinfo(info.id,info.username,info.password,info.highscore);
+                   d.Insertinfo(info.email,info.username,info.password,info.highscore);
                    Intent in=new Intent(Newaccountactivity.this,Loginactivity.class);
                    startActivity(in);
                    finish();
@@ -50,10 +51,10 @@ public class Newaccountactivity extends AppCompatActivity {
                {
                    while(cur.moveToNext())
                    {
-                       if(un.equals(cur.getString(1))||info.id== Integer.parseInt(cur.getString(0)))
+                       if(un.equals(cur.getString(2))||email.equals(cur.getString(1)))
                        {
                            Alert("Error","This username or Id is already taken Enter a unique username and Id");
-                           idtext.setText(null);
+                           Etext.setText(null);
                            usertext.setText(null);
                            passwordtext.setText(null);
                            error=1;
@@ -68,7 +69,7 @@ public class Newaccountactivity extends AppCompatActivity {
                    }
                    if(error==0)
                    {
-                       d.Insertinfo(info.id,info.username,info.password,info.highscore);
+                       d.Insertinfo(info.email,info.username,info.password,info.highscore);
                        Intent in=new Intent(Newaccountactivity.this,Loginactivity.class);
                        startActivity(in);
                    }

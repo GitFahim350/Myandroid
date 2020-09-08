@@ -5,7 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/LightBlue"
+    android:background="@color/RoyalBlue"
     tools:context=".Loginactivity"
     >
 
@@ -22,15 +22,15 @@
         android:id="@+id/Username"
         android:layout_width="250dp"
         android:layout_height="40dp"
+        android:layout_above="@+id/Password"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="35dp"
         android:background="#11000000"
         android:drawableLeft="@drawable/ic_action_usericon"
         android:ems="10"
-        android:hint="Username"
+        android:hint="Email id"
         android:inputType="textPersonName"
-        android:textSize="16dp"
-        android:layout_marginBottom="35dp"
-        android:layout_above="@+id/Password"
-        android:layout_centerHorizontal="true" />
+        android:textSize="16dp" />
 
     <EditText
         android:id="@+id/Password"

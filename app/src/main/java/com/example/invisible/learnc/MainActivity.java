@@ -59,7 +59,7 @@ public class MainActivity extends AppCompatActivity  {
         onlinetutorial.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent in2=new Intent(MainActivity.this,Webactivity.class);
+                Intent in2=new Intent(MainActivity.this,Youtubeactivity.class);
                 startActivity(in2);
 
             }

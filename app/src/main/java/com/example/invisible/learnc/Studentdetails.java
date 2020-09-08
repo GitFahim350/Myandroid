@@ -12,13 +12,14 @@ public class Studentdetails extends SQLiteOpenHelper {
 
     private  static final String DATABASENAME="STUDENT.db";
     private  static final String TABLENAME="Studenttable";
-    private  static final String ID="ID";
+    private  static final String ID="Id";
+    private  static final String EMAIL="EMAIL";
     private  static final String Username="Username";
     private  static final String Passwordname="Password";
     private  static final String Highscore="Highscore";
-    private  static final int version=4;
+    private  static final int version=6;
     private Context C;
-    private  static final String TABLE="CREATE TABLE "+TABLENAME+"("+ID+" INTEGER,"+Username+" TEXT,"+Passwordname+" TEXT,"+Highscore+" INTEGER)";
+    private  static final String TABLE="CREATE TABLE "+TABLENAME+"("+ID+" INTEGER PRIMARY KEY AUTOINCREMENT,"+EMAIL+" TEXT,"+Username+" TEXT,"+Passwordname+" TEXT,"+Highscore+" INTEGER)";
 
     private  static final String DROP="DROP TABLE IF EXISTS "+TABLENAME;
     public Studentdetails( Context context) {
@@ -45,11 +46,11 @@ public class Studentdetails extends SQLiteOpenHelper {
     }
 
 
-    public  void Insertinfo(int id,String s1, String s2, int High)
+    public  void Insertinfo(String email,String s1, String s2, int High)
     {
         SQLiteDatabase  sq=this.getWritableDatabase();
         ContentValues cv=new ContentValues();
-        cv.put(ID,id);
+        cv.put(EMAIL,email);
         cv.put(Username,s1);
         cv.put(Passwordname,s2);
         cv.put(Highscore,High);
@@ -64,13 +65,14 @@ public class Studentdetails extends SQLiteOpenHelper {
         }
     }
 
-    public  void Updateinfo(int id,String s1, String s2, int High)
+    public  void Updateinfo(int id,String s1, String s2, String s3,int High)
     {
         SQLiteDatabase  sq=this.getWritableDatabase();
         ContentValues cv=new ContentValues();
         cv.put(ID,id);
-        cv.put(Username,s1);
-        cv.put(Passwordname,s2);
+        cv.put(EMAIL,s1);
+        cv.put(Username,s2);
+        cv.put(Passwordname,s3);
         cv.put(Highscore,High);
         String hi=Integer.toString(High);
         sq.update(TABLENAME,cv,"ID=?",new String []{String.valueOf(id)});
